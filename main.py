@@ -2,11 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/')
 def mainroute():
-
-  testvar = 'bye'
   
-  return render_template('indfex.html', testvar = testvar)
+  return 'hi'
 
 app.run(host = '0.0.0.0')
