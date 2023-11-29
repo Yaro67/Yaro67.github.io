@@ -6,10 +6,9 @@ html, body {
 header {
   background-color: white;
   color: #1094d5;
-  padding: 20px;
-  text-align: center;
   box-sizing: border-box;
   padding: 20px;
+  height: 200px;
 }
 
 header h2 {
