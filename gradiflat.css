@@ -1,5 +1,6 @@
 html, body {
   margin: 0;
+  font-family: Arial;
 }
 
 header {
@@ -7,6 +8,16 @@ header {
   color: #1094d5;
   padding: 20px;
   text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+header h2 {
+  float: left;
+}
+
+header .navbar{
+  float: right;
 }
 
 .background {
