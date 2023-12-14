@@ -14,8 +14,49 @@
         <label for="clientsServed">Clients Served:</label>
         <input type="number" id="clientsServed" required><br>
         <button type="button" onclick="submitForm()">Submit</button>
+        <button type="button" onclick="refreshList()">Refresh</button>
     </form>
 
-    <script src="main.js"></script>
+    <ul id="clientList"></ul>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const clientsServed = document.getElementById('clientsServed').value;
+
+            fetch('https://itdb.yarokhv67.repl.co/saveClient', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, clientsServed }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function refreshList() {
+            const clientList = document.getElementById('clientList');
+
+            fetch('https://itdb.yarokhv67.repl.co.repl.co/getClients')
+            .then(response => response.json())
+            .then(data => {
+                clientList.innerHTML = '';
+                data.clients.forEach(client => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${client.name} - Clients Served: ${client.clientsServed}`;
+                    clientList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>
