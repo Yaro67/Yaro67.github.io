@@ -43,19 +43,24 @@
 
         function refreshList() {
             const clientList = document.getElementById('clientList');
-
+        
             fetch('https://itdb.yarokhv67.repl.co/getClients', {
                 method: 'GET',
-                mode: 'cors',  // Add this line
+                mode: 'cors',
             })
             .then(response => response.json())
             .then(data => {
                 clientList.innerHTML = '';
-                data.clients.forEach(client => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = `${client.name} - Clients Served: ${client.clientsServed}`;
-                    clientList.appendChild(listItem);
-                });
+        
+                if (data.clients) {
+                    data.clients.forEach(client => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${client.name} - Clients Served: ${client.clientsServed}`;
+                        clientList.appendChild(listItem);
+                    });
+                } else {
+                    console.error('Error: Unexpected data format from the server');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
