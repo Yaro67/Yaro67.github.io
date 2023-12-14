@@ -43,7 +43,7 @@
         function refreshList() {
             const clientList = document.getElementById('clientList');
 
-            fetch('https://itdb.yarokhv67.repl.co.repl.co/getClients')
+            fetch('https://itdb.yarokhv67.repl.co/getClients')
             .then(response => response.json())
             .then(data => {
                 clientList.innerHTML = '';
