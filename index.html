@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" type="text/css" href="https://yaro67.github.io/gradiflat.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Form</title>
+</head>
 <body>
-  <header><h2>Yaro67</h2><div class="navigation"><a>About Me</a><a>WayNet</a><a>GradiFlat UI</a></div></header>
-  <div class="background"></div>
+    <h1>Client Information</h1>
+    <form id="clientForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+        <label for="clientsServed">Clients Served:</label>
+        <input type="number" id="clientsServed" required><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script src="main.js"></script>
 </body>
 </html>
